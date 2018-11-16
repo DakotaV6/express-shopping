@@ -1,0 +1,6 @@
+# add files and folders you want ignored
+.DS_Store
+node_modules
+.env
+palette (1).scss
+palette.scss

@@ -1,0 +1,38 @@
+body {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+}
+.section-title {
+    font-size: 20px;
+    color: rgba(201, 93, 99, 1);
+}
+.list-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 70vw;
+}
+td {
+    height: 24px;
+}
+table tr:nth-child(odd) {
+    color: rgba(238, 132, 52, 1);
+}
+  table tr:nth-child(even) {
+    color: rgba(73, 109, 219, 1);
+}
+.item-id {
+    width: 6%;
+}
+.item-name {
+    width: 80%;
+    padding-right: 5px;
+}
+.item-price {
+    width: 10%;
+    padding-right: 5px;
+}
+.item-quantity {
+    text-align: center;
+}
