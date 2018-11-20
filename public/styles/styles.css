@@ -4,7 +4,7 @@ body {
 }
 .section-title {
     font-size: 20px;
-    color: rgba(201, 93, 99, 1);
+    color: rgba(239, 71, 111, 1);
 }
 .list-container {
     position: absolute;
@@ -16,11 +16,14 @@ body {
 td {
     height: 24px;
 }
+.column-title {
+    color: rgba(53, 53, 53, 1);
+}
 table tr:nth-child(odd) {
-    color: rgba(238, 132, 52, 1);
+    color: rgba(240, 135, 0, 1);
 }
   table tr:nth-child(even) {
-    color: rgba(73, 109, 219, 1);
+    color: rgba(0, 166, 166, 1);
 }
 .item-id {
     width: 6%;

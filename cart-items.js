@@ -2,51 +2,36 @@
 
 const express = require("express");
 const cartItems = express.Router();
-
-const items = [
-    {
-        id: 1,
-        product: "Nintendo Switch",
-        price: 299.00,
-        quantity: 1
-    },
-    {
-        id: 2,
-        product: "Kingdom Hearts III (PS4)",
-        price: 59.99,
-        quantity: 1
-    },    
-    {
-        id: 3,
-        product: "Super Mario Party (Switch)",
-        price: 56.95,
-        quantity: 1
-    },
-    {
-        id: 4,
-        product: "Red Bull 24-pack, Green Edition",
-        price: 54.04,
-        quantity: 1
-    }
-];
+const pool = require("./pg-connection-pool.js");
 
 cartItems.get("/cart-items", (req, res) => {
-    res.json(items);
+    pool.query("SELECT * FROM shoppingcart ORDER BY id").then((result) => {
+        res.json(result.rows);
+    });
 });
 
 cartItems.post("/cart-items", (req, res) => {
-    items.push(req.body);
-    res.json(items);
+    pool.query("INSERT INTO shoppingcart(product, price, quantity) VALUES($1::text, $2::float, $3::int)", [req.body.product, req.body.price, req.body.quantity]).then(() => {
+        pool.query("SELECT * FROM shoppingcart ORDER BY id").then((result) => {
+        res.json(result.rows);
+        });
+    });
 });
 
 cartItems.delete("/cart-items/:id", (req, res) => {
-    items.splice((req.params.id - 1), 1);
-    res.json(items);
+    pool.query("DELETE FROM shoppingcart WHERE id=$1::int", [req.params.id]).then(() => {
+        pool.query("SELECT * FROM shoppingcart ORDER BY id").then((result) => {
+            res.json(result.rows);
+        });
+    });
 });
 
 cartItems.put("/cart-items/:id", (req, res) => {
-    items[req.params.id - 1] = req.body;
-    res.json(items);
+    pool.query("UPDATE shoppingcart SET product=$1::text, price=$2::float, quantity=$3::int WHERE id=$4::int", [req.body.product, req.body.price, req.body.quantity, req.params.id]).then(() => {
+        pool.query("SELECT * FROM shoppingcart ORDER BY id").then((result) => {
+            res.json(result.rows);
+        });
+    });
 });
 
 module.exports = cartItems;
