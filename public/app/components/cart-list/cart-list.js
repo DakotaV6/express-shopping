@@ -5,23 +5,19 @@ const cartList = {
     controller: ["CartService", function (CartService) {
         const vm = this;
 
-        CartService.getAllItems().then((response) => {
-            vm.cart = response.data;
-        });
+        function updateCart(result) {
+            vm.cart = result.data;
+          };
+
+        CartService.getAllItems().then(updateCart);
         vm.removeItem = (id) => {
-            CartService.removeItem(id).then((response) => {
-                vm.cart = response.data;
-            });
+            CartService.removeItem(id).then(updateCart);
         };
         vm.addItem = (item) => {
-            CartService.addItem(item).then((response) => {
-                vm.cart = response.data;
-            });
+            CartService.addItem(item).then(updateCart);
         };
         vm.updateQuantity = (item) => {
-            CartService.updateItem(item).then((response) => {
-                vm.cart = response.data;
-            });
+            CartService.updateItem(item).then(updateCart);
         };
     }]
 }
