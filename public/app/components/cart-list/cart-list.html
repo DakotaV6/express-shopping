@@ -1,5 +1,5 @@
 <section class="main-container">
-        <p class="section-title">Add New Item</p>
+    <p class="section-title">Add New Item</p>
 
     <form ng-submit="$ctrl.addItem($ctrl.item)" id="new-item-form">
         <label for="item-name">Product Name:</label>
@@ -24,5 +24,10 @@
             <td class="item-price">${{ item.price }}</td>
             <td class="item-quantity"><input class="quantity-input" ng-blur="$ctrl.updateQuantity(item);" ng-model="item.quantity"></td>
         </tr>
+        <!-- <tr>
+            <td class="column-title"></td>
+            <td class="column-title item-name">Total:</td>
+            <td class="column-title cart-total" ng-model="$ctrl.getTotal();"></td>
+        </tr> -->
     </table>
 </section>
