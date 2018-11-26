@@ -6,7 +6,41 @@ body {
     font-size: 20px;
     color: rgba(239, 71, 111, 1);
 }
-.list-container {
+#new-item-form {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+#new-item-form input {
+    padding: 2px 0;
+}
+#item-name-input {
+    width: 200px;
+}
+#item-price-input {
+    width: 100px;
+}
+#item-quant-input {
+    width: 75px;
+}
+.cart-btn {
+    background: none;
+    border: none;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    margin-top: 15px;
+}
+.cart-btn:hover {
+    cursor: pointer;
+    color: rgba(0, 166, 166, 1);
+}
+.fa-cart-plus {
+    font-size: 20px;
+}
+
+.main-container {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -25,8 +59,12 @@ table tr:nth-child(odd) {
   table tr:nth-child(even) {
     color: rgba(0, 166, 166, 1);
 }
-.item-id {
-    width: 6%;
+.fa-times-circle {
+    color: rgba(53, 53, 53, 1);
+}
+.fa-times-circle:hover {
+    cursor: pointer;
+    color: rgba(239, 71, 111, 1);
 }
 .item-name {
     width: 80%;

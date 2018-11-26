@@ -8,6 +8,16 @@ const cartList = {
         CartService.getAllItems().then((response) => {
             vm.cart = response.data;
         });
+        vm.removeItem = (id) => {
+            CartService.removeItem(id).then((response) => {
+                vm.cart = response.data;
+            });
+        };
+        vm.addItem = (item) => {
+            CartService.addItem(item).then((response) => {
+                vm.cart = response.data;
+            });
+        };
     }]
 }
 

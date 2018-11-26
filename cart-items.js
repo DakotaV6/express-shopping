@@ -8,7 +8,7 @@ function getCart(req, res) {
     pool.query("SELECT * FROM shoppingcart ORDER BY id").then((result) => {
         res.json(result.rows);
     });
-}
+};
 
 cartItems.get("/cart-items", (req, res) => {
     getCart(req, res);
