@@ -22,7 +22,7 @@
             <td class="item-delete" ng-click="$ctrl.removeItem(item.id);"><i class="fas fa-times-circle"></i></td>
             <td class="item-name">{{ item.product }}</td>
             <td class="item-price">${{ item.price }}</td>
-            <td class="item-quantity">{{ item.quantity }}</td>
+            <td class="item-quantity"><input class="quantity-input" ng-blur="$ctrl.updateQuantity(item);" ng-model="item.quantity"></td>
         </tr>
     </table>
 </section>

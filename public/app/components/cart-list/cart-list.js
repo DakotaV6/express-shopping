@@ -18,6 +18,11 @@ const cartList = {
                 vm.cart = response.data;
             });
         };
+        vm.updateQuantity = (item) => {
+            CartService.updateItem(item).then((response) => {
+                vm.cart = response.data;
+            });
+        };
     }]
 }
 

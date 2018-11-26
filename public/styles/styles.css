@@ -2,6 +2,13 @@ body {
     font-family: 'Press Start 2P', cursive;
     font-size: 14px;
 }
+.main-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 70vw;
+}
 .section-title {
     font-size: 20px;
     color: rgba(239, 71, 111, 1);
@@ -39,24 +46,16 @@ body {
 .fa-cart-plus {
     font-size: 20px;
 }
-
-.main-container {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 70vw;
-}
 td {
     height: 24px;
 }
 .column-title {
     color: rgba(53, 53, 53, 1);
 }
-table tr:nth-child(odd) {
+table tr:nth-child(odd), table tr:nth-child(odd) .quantity-input {
     color: rgba(240, 135, 0, 1);
 }
-  table tr:nth-child(even) {
+table tr:nth-child(even), table tr:nth-child(even) .quantity-input {
     color: rgba(0, 166, 166, 1);
 }
 .fa-times-circle {
@@ -75,5 +74,12 @@ table tr:nth-child(odd) {
     padding-right: 5px;
 }
 .item-quantity {
+    align-content: center;
+}
+.quantity-input {
+    width: 100%;
     text-align: center;
+    padding: 2px 0;
+    font-family: 'Press Start 2P', cursive;
+    border: none;
 }
